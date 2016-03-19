@@ -1,7 +1,7 @@
 # if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   echo -e "Starting to update gh-pages\n"
   echo =========== GH_TOKEN =================
-  echo ￥GH_TOKEN 
+  echo $GH_TOKEN 
   #copy data we're interested in to other place
   # mkdir -p $HOME/coverage
   # cp -R $HOME/ss-install/bin/*.tar.gz $HOME/coverage

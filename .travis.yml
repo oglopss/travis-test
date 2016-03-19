@@ -59,11 +59,9 @@ git:
 env:
     # - CT_SAMPLE=mipsel-unknown-linux-gnu
     matrix:
-        # - export PATH=$HOME/x-tools/mipsel-unknown-linux-uclibc/bin:$PATH
         - SS_VER=v2.4.5
         - SS_VER=v2.4.1
         - SS_VER=v2.3.1
-        # - SS_VER=v2.4.5
     global:
         - secure: Jb6Zg7zwuMwDquCiGLHf3Y5lbK20aD+Bxc0AqIfTM+Affjy2KmjnCdM2qtSt/WZOwxcaapYd+w+J1z3XvCMrIQql6EdtFNnvjQ7k6USeduvU/hdFaeiBMTHBayy2TSMo27afl6DfdJBfOP9f5NNLX0/FMXqtaM1OZ/GYVX2bge33o5BCz/325cfpShqoZYl9IGrHgzcA40dQxI04gQyCV6eXxb0K/B+wjTbsgDd3RPOPefw43nCAo5MzG1bN4T8Onn27eQfwvRLhXMpPQT4EnvpnO77Za6oPrIOq9rqePakWGt8zfUeTAuYfXMlBcZSQ0PLik7NamWkK8jj+Q4rATSQ94LgI8NRX2w2Opl4uIL/xvRFZslElIiqzyrEAYtXiJ36cVOpWaqKuU9nNw5N1nOB6EOu8irRVa1B5P4UoT0XRFzC5huKoQvxg21SKiMv/LGXUomYuGeu+NQi7uDGUH+1UVSZwOTuE3yVJXE8EYp9thwmCJrsfGIJBvqDzc2jRvslp+bpcjhVGJ7FCsuzcnRLpaKb2X2n+GSmVZCuMvWih66JB++1mVVjvkD2nqrg/9kOiPgEhYg3K2QWWNOs17mEzpZoGxGnZdWt5AoCxcgflqQ19cckiidJrxG/ZhgQEybwUgeaLp5am6kNjfoxY/zHcDDZl0eMHFVDzaNbFkMo=
 # Building the standard samples

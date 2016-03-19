@@ -24,6 +24,8 @@
   #add, commit and push files
   git add -f .
 
+  echo ======== show $SS_VER =======
+  echo $SS_VER
 
   # need to regenerate _data/ss.yml
   cd ../_data
@@ -37,11 +39,11 @@ EOL
   echo ============= print ss.yml =============
   cat ./ss.yml
   
-  git add -f ss.yml
+  # git add -f ss.yml
 
-  echo ============= commit ss.yml =============
-  git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages"
-  git push -f
+  # echo ============= commit ss.yml =============
+  # git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages"
+  # git push -f
 
   echo -e "Done magic with love\n"
 

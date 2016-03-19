@@ -10,8 +10,9 @@
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "Travis"
 
+  echo ===== about to clone ctng-ss-jekyll ===============
   #using token clone gh-pages branch
-  git clone --quiet  https://${GH_TOKEN}@github.com/oglopss/ctng-ss-jekyll.git  gh-pages-jekyll > /dev/null
+  git clone https://${GH_TOKEN}@github.com/oglopss/ctng-ss-jekyll.git  gh-pages-jekyll > /dev/null
 
   #go into diractory and copy data we're interested in to that directory
   cd gh-pages-jekyll

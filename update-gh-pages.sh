@@ -10,8 +10,8 @@
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "Travis"
 
-  echo ===== about to clone ctng-ss-jekyll ===============
-  echo git clone https://${GH_TOKEN}@github.com/oglopss/ctng-ss-jekyll.git gh-pages-jekyll > /dev/null
+  echo ===== about to clone ctng-ss-jekyllx ===============
+  echo git clone https://${GH_TOKEN}@github.com/oglopss/ctng-ss-jekyll.git gh-pages-jekyll
   #using token clone gh-pages branch
   git clone https://${GH_TOKEN}@github.com/oglopss/ctng-ss-jekyll.git  gh-pages-jekyll > /dev/null
 

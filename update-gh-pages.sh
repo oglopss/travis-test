@@ -1,0 +1,43 @@
+# if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+  echo -e "Starting to update gh-pages\n"
+
+  #copy data we're interested in to other place
+  # mkdir -p $HOME/coverage
+  # cp -R $HOME/ss-install/bin/*.tar.gz $HOME/coverage
+
+  #go to home and setup git
+  cd $HOME
+  git config --global user.email "travis@travis-ci.org"
+  git config --global user.name "Travis"
+
+  #using token clone gh-pages branch
+  git clone --quiet  https://${GH_TOKEN}@github.com/oglopss/ctng-ss-jekyll.git  gh-pages-jekyll > /dev/null
+
+  #go into diractory and copy data we're interested in to that directory
+  cd gh-pages-jekyll
+  mkdir -p ss && cd ss
+  # cp -Rf $HOME/coverage/* .
+
+  #add, commit and push files
+  git add -f .
+
+
+  # need to regenerate _data/ss.yml
+  cd ../_data
+  cat > ss.yml <<EOL
+- build: $TRAVIS_BUILD_NUMBER
+  files:
+    - 2.4.5
+    - 2.3.1
+EOL
+  
+  git add -f ss.yml
+
+  git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages"
+  git push -fq > /dev/null
+
+  echo -e "Done magic with love\n"
+
+
+
+# fi

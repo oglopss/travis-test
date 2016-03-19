@@ -29,12 +29,32 @@
 
   # need to regenerate _data/ss.yml
   cd ../_data
-  cat > ss.yml <<EOL
-- build: $TRAVIS_BUILD_NUMBER
-  files:
-    - 2.4.5
-    - 2.3.1
+
+  datetime=$(date '+%d/%m/%Y %H:%M:%S');
+
+if grep -qe "build: $TRAVIS_BUILD_NUMBER$" ss.yml
+then
+    # code if found
+    echo append files to yml
+    cat > ss.yml <<EOL
+    - $SS_VER
 EOL
+
+else
+    # code if not found
+    echo create new file
+
+
+    cat > ss.yml <<EOL
+- build: $TRAVIS_BUILD_NUMBER
+  time: $datetime
+  files:
+    - $SS_VER
+EOL
+
+fi
+
+
   
   echo ============= print ss.yml =============
   cat ./ss.yml

@@ -32,10 +32,14 @@
     - 2.3.1
 EOL
   
+  echo ============= print ss.yml =============
+  cat ./ss.yml
+  
   git add -f ss.yml
 
+  echo ============= commit ss.yml =============
   git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages"
-  git push -fq > /dev/null
+  git push -f
 
   echo -e "Done magic with love\n"
 

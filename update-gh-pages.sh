@@ -30,15 +30,22 @@
   # need to regenerate _data/ss.yml
   cd ../_data
 
-  datetime=$(date '+%d/%m/%Y %H:%M:%S');
+  datetime=$(date '+%d/%m/%Y %H:%M:%S %Z');
 
 if grep -qe "build: $TRAVIS_BUILD_NUMBER$" ss.yml
 then
     # code if found
-    echo append files to yml
-    cat > ss.yml <<EOL
-    - $SS_VER
+    # update files
+    if grep -qe "  - $SS_VER$" ss.yml
+    then
+        echo files already inside skip
+    else
+        cat > ss.yml <<EOL
+  - 2.4.5
 EOL
+    fi
+  # update datetime
+  sed -ie 's/^date:\s.*/date: $datetime/g' ss.yml
 
 else
     # code if not found
@@ -46,24 +53,26 @@ else
 
 
     cat > ss.yml <<EOL
-- build: $TRAVIS_BUILD_NUMBER
-  time: $datetime
-  files:
-    - $SS_VER
+build: $TRAVIS_BUILD_NUMBER
+date: $datetime
+files:
+  - $SS_VER
 EOL
 
 fi
-
+  
 
   
   echo ============= print ss.yml =============
   cat ./ss.yml
+  # echo ============= we pull ss.yml =============
   
-  # git add -f ss.yml
+  
+  git add -f ss.yml
 
-  # echo ============= commit ss.yml =============
-  # git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages"
-  # git push -f
+  echo ============= commit ss.yml =============
+  git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages"
+  git push -f
 
   echo -e "Done magic with love\n"
 

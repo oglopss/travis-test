@@ -45,7 +45,7 @@ then
 EOL
     fi
   # update datetime
-  sed -ie 's/^date:\s.*/date: $datetime/g' ss.yml
+  sed -ie 's@^date:\s.*@date: '"$datetime"'@g' ss.yml
 
 else
     # code if not found

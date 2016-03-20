@@ -12,6 +12,11 @@
   git config --global user.name "Travis"
 
   echo ===== about to clone ctng-ss-jekyllx ===============
+  echo 
+  x=$[ ( $RANDOM % 180 )  + 10 ]s
+  echo sleeping $x
+  sleep $x
+  
   # echo git clone https://${GH_TOKEN}@github.com/oglopss/ctng-ss-jekyll.git gh-pages-jekyll
   #using token clone gh-pages branch
   git clone https://${GH_TOKEN}@github.com/oglopss/ctng-ss-jekyll.git  gh-pages-jekyll > /dev/null

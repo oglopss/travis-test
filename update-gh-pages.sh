@@ -40,8 +40,8 @@ then
     then
         echo files already inside skip
     else
-        cat > ss.yml <<EOL
-  - 2.4.5
+        cat >> ss.yml <<EOL
+  - $SS_VER
 EOL
     fi
   # update datetime
